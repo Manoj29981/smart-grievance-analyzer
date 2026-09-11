@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Smart Grievance Analyzer</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f7f9;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .input-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            background: #1769aa;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #12588d;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .card p {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .priority-high {
+            font-weight: bold;
+        }
+
+        .summary {
+            grid-column: 1 / -1;
+        }
+
+        .error {
+            background: #fff0f0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .loading {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .recurring-alert {
+            grid-column: 1 / -1;
+            background: #fff8e1;
+            border-left: 5px solid #f0ad4e;
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        .new-issue-alert {
+            grid-column: 1 / -1;
+            background: #eef8f0;
+            border-left: 5px solid #4caf50;
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        /* Grievance ID */
+        .grievance-id {
+            grid-column: 1 / -1;
+            background: #e8f1fb;
+            border-left: 5px solid #1769aa;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .grievance-id strong {
+            color: #1769aa;
+        }
+
+        @media (max-width: 700px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-card {
+                background: white;
+                margin-top: 25px;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            }
+
+            .status-card h2 {
+                margin-top: 0;
+            }
+
+            .status-card p {
+                color: #555;
+            }
+
+            .status-input-row {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .status-input-row input {
+                flex: 1;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 15px;
+                box-sizing: border-box;
+            }
+
+            .status-input-row button {
+                margin-top: 0;
+            }
+
+            .status-result {
+                margin-top: 20px;
+                padding: 18px;
+                border-radius: 10px;
+                background: #f4f7f9;
+            }
+
+            .status-pending {
+                font-weight: bold;
+                color: #d68910;
+            }
+
+            .status-progress {
+                font-weight: bold;
+                color: #1769aa;
+            }
+
+            .status-resolved {
+                font-weight: bold;
+                color: #2e7d32;
+            }
+
+            .status-error {
+                margin-top: 15px;
+                background: #fff0f0;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AI Smart Grievance Analyzer</h1>
+
+        <p class="subtitle">
+            Submit a campus grievance and let AI analyze, prioritize and route it
+            to the appropriate department.
+        </p>
+
+        <div class="input-card">
+
+            <label for="grievance">Enter your grievance:</label>
+
+            <textarea id="grievance" rows="7"
+                placeholder="Example: There is a water leakage near Block B for the last 3 days."></textarea>
+
+            <button id="analyzeButton">
+                Analyze Grievance
+            </button>
+
+        </div>
+        <div class="status-card">
+
+            <h2>🔎 Check Grievance Status</h2>
+
+            <p>
+                Enter your Grievance ID to check the latest status.
+            </p>
+
+            <div class="status-input-row">
+
+                <input type="text" id="statusGrievanceId" placeholder="Example: SGA-001">
+
+                <button id="checkStatusButton">
+                    Check Status
+                </button>
+
+            </div>
+
+            <div id="statusResult"></div>
+
+        </div>
+        <div id="result">
+
+            <h2>AI Analysis</h2>
+
+            <p>
+                Submit a grievance to see the AI analysis.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Safely convert AI-generated text into HTML-safe text
+        function escapeHTML(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        document.getElementById("analyzeButton").addEventListener(
+            "click",
+            async function () {
+
+                const grievance =
+                    document.getElementById("grievance").value.trim();
+
+                const result =
+                    document.getElementById("result");
+
+                const button =
+                    document.getElementById("analyzeButton");
+
+
+                // Check empty grievance
+                if (!grievance) {
+
+                    result.innerHTML = `
+                        <h2>AI Analysis</h2>
+
+                        <div class="error">
+                            Please enter a grievance first.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                // Disable button while AI is processing
+                button.disabled = true;
+
+                button.textContent = "Analyzing...";
+
+
+                result.innerHTML = `
+                    <h2>AI Analysis</h2>
+
+                    <div class="loading">
+                        AI is analyzing the grievance...
+                    </div>
+                `;
+
+
+                try {
+
+                    const response = await fetch(
+                        "/analyze",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                grievance: grievance
+                            })
+                        }
+                    );
+
+
+                    const data = await response.json();
+
+
+                    // Handle server error
+                    if (data.error) {
+
+                        result.innerHTML = `
+                            <h2>AI Analysis</h2>
+
+                            <div class="error">
+                                ${escapeHTML(data.error)}
+                            </div>
+                        `;
+
+                        return;
+                    }
+
+
+                    // Recurring issue section
+                    let recurringHTML = "";
+
+
+                    if (data.recurring_issue) {
+
+                        recurringHTML = `
+                            <div class="recurring-alert">
+
+                                <h3>
+                                    Potentially Recurring Issue
+                                </h3>
+
+                                <p>
+                                    A similar previous grievance was detected.
+                                </p>
+
+                                <p>
+                                    Similarity Score:
+                                    <strong>
+                                        ${escapeHTML(data.similarity_score)}%
+                                    </strong>
+                                </p>
+
+                                <p>
+                                    Matched Grievance ID:
+                                    <strong>
+                                        ${data.matched_grievance_id
+                                ? `SGA-${String(data.matched_grievance_id).padStart(3, "0")}`
+                                : "Not specified"}
+                                    </strong>
+                                </p>
+
+                                <p>
+                                    Please review the previous grievance
+                                    before taking action.
+                                </p>
+
+                            </div>
+                        `;
+
+                    } else {
+
+                        recurringHTML = `
+                            <div class="new-issue-alert">
+
+                                <h3>
+                                    New Issue
+                                </h3>
+
+                                <p>
+                                    No sufficiently similar previous
+                                    grievance was detected.
+                                </p>
+
+                            </div>
+                        `;
+                    }
+
+
+                    // Display AI analysis
+                    result.innerHTML = `
+
+                        <h2>AI Analysis</h2>
+
+                        <div class="analysis-grid">
+
+                            <!-- Grievance ID -->
+                            <div class="grievance-id">
+
+                                Grievance ID:
+                                <strong>
+                                    ${escapeHTML(data.grievance_id)}
+                                </strong>
+
+                                <p style="margin-top: 8px; font-size: 14px; color: #555;">
+                                    Keep this ID to check the status of your grievance later.
+                                </p>
+
+                            </div>
+
+
+                            ${recurringHTML}
+
+
+                            <div class="card">
+
+                                <h3>Category</h3>
+
+                                <p>
+                                    ${escapeHTML(data.category)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Priority</h3>
+
+                                <p class="priority-high">
+                                    ${escapeHTML(data.priority)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Issue</h3>
+
+                                <p>
+                                    ${escapeHTML(data.issue)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Location</h3>
+
+                                <p>
+                                    ${escapeHTML(data.location)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Duration</h3>
+
+                                <p>
+                                    ${escapeHTML(data.duration)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Responsible Department</h3>
+
+                                <p>
+                                    ${escapeHTML(data.responsible_department)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Sustainability Impact</h3>
+
+                                <p>
+                                    ${escapeHTML(data.sustainability_impact)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card">
+
+                                <h3>Recommended Action</h3>
+
+                                <p>
+                                    ${escapeHTML(data.recommended_action)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="card summary">
+
+                                <h3>AI Summary</h3>
+
+                                <p>
+                                    ${escapeHTML(data.summary)}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                } catch (error) {
+
+                    result.innerHTML = `
+                        <h2>AI Analysis</h2>
+
+                        <div class="error">
+                            Unable to connect to the server.
+                        </div>
+                    `;
+
+                    console.error(error);
+
+                } finally {
+
+                    // Re-enable button
+                    button.disabled = false;
+
+                    button.textContent = "Analyze Grievance";
+
+                }
+
+            }
+        );
+        // Check grievance status
+        document.getElementById("checkStatusButton").addEventListener(
+            "click",
+            async function () {
+
+                const grievanceId =
+                    document.getElementById("statusGrievanceId").value.trim();
+
+                const statusResult =
+                    document.getElementById("statusResult");
+
+                const button =
+                    document.getElementById("checkStatusButton");
+
+
+                // Check empty ID
+                if (!grievanceId) {
+
+                    statusResult.innerHTML = `
+                        <div class="status-error">
+                            Please enter your Grievance ID.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                // Disable button while checking
+                button.disabled = true;
+                button.textContent = "Checking...";
+
+                statusResult.innerHTML = `
+                    <div class="loading">
+                        Checking grievance status...
+                    </div>
+                `;
+
+
+                try {
+
+                    const response = await fetch(
+                        "/check_status",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                grievance_id: grievanceId
+                            })
+                        }
+                    );
+
+
+                    const data = await response.json();
+
+
+                    // Handle error
+                    if (data.error) {
+
+                        statusResult.innerHTML = `
+                            <div class="status-error">
+                                ${escapeHTML(data.error)}
+                            </div>
+                        `;
+
+                        return;
+                    }
+
+
+                    // Choose status class
+                    let statusClass = "status-pending";
+
+                    if (data.status === "In Progress") {
+                        statusClass = "status-progress";
+                    }
+
+                    if (data.status === "Resolved") {
+                        statusClass = "status-resolved";
+                    }
+
+
+                    // Display status
+                    statusResult.innerHTML = `
+
+                        <div class="status-result">
+
+                            <h3>
+                                Grievance ID:
+                                ${escapeHTML(data.grievance_id)}
+                            </h3>
+
+                            <p>
+                                <strong>Category:</strong>
+                                ${escapeHTML(data.category)}
+                            </p>
+
+                            <p>
+                                <strong>Issue:</strong>
+                                ${escapeHTML(data.issue)}
+                            </p>
+
+                            <p>
+                                <strong>Location:</strong>
+                                ${escapeHTML(data.location)}
+                            </p>
+
+                            <p>
+                                <strong>Responsible Department:</strong>
+                                ${escapeHTML(data.responsible_department)}
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
+                                <span class="${statusClass}">
+                                    ${escapeHTML(data.status)}
+                                </span>
+                            </p>
+
+                        </div>
+
+                    `;
+
+                } catch (error) {
+
+                    statusResult.innerHTML = `
+                        <div class="status-error">
+                            Unable to connect to the server.
+                        </div>
+                    `;
+
+                    console.error(error);
+
+                } finally {
+
+                    button.disabled = false;
+                    button.textContent = "Check Status";
+
+                }
+
+            }
+        );
+    </script>
+
+</body>
+
+</html>
