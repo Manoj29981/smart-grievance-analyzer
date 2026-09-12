@@ -1,8 +1,8 @@
-\# Smart Grievance Analyzer (SGA)
+# Smart Grievance Analyzer (SGA)
 
 
 
-\## AI-Powered Grievance Analysis for Sustainable Campus Management
+## AI-Powered Grievance Analysis for Sustainable Campus Management
 
 
 
@@ -14,11 +14,11 @@ The system uses \*\*IBM Granite through IBM watsonx.ai\*\* to transform unstruct
 
 
 
-\---
+---
 
 
 
-\## Problem Statement
+## Problem Statement
 
 
 
@@ -30,23 +30,23 @@ This can make it difficult for administrators to:
 
 
 
-\- Identify the type of issue quickly
+- Identify the type of issue quickly
 
-\- Determine its urgency
+- Determine its urgency
 
-\- Route it to the appropriate department
+- Route it to the appropriate department
 
-\- Detect recurring problems
+- Detect recurring problems
 
-\- Understand sustainability impacts
+- Understand sustainability impacts
 
-\- Take timely corrective action
+- Take timely corrective action
 
-\- Track the status of submitted grievances
+- Track the status of submitted grievances
 
 
 
-\### How Might We?
+### How Might We?
 
 
 
@@ -54,11 +54,11 @@ This can make it difficult for administrators to:
 
 
 
-\---
+---
 
 
 
-\## Proposed Solution
+## Proposed Solution
 
 
 
@@ -66,7 +66,7 @@ SGA provides \*\*two separate interfaces\*\* connected through a Flask backend a
 
 
 
-\### 1. Grievance Analyzer
+### 1. Grievance Analyzer
 
 
 
@@ -78,27 +78,27 @@ Users submit a grievance in natural language. IBM Granite analyzes the grievance
 
 
 
-\- Grievance ID
+- Grievance ID
 
-\- Category
+- Category
 
-\- Issue
+- Issue
 
-\- Location
+- Location
 
-\- Duration
+- Duration
 
-\- Priority
+- Priority
 
-\- Responsible Department
+- Responsible Department
 
-\- Sustainability Impact
+- Sustainability Impact
 
-\- Recommended Action
+- Recommended Action
 
-\- AI Summary
+- AI Summary
 
-\- Potentially Recurring Issue detection
+- Potentially Recurring Issue detection
 
 
 
@@ -106,7 +106,7 @@ Users can also enter their Grievance ID to check the current status of their gri
 
 
 
-\### 2. Admin Dashboard
+### 2. Admin Dashboard
 
 
 
@@ -118,19 +118,19 @@ Administrators can:
 
 
 
-\- View total grievances
+- View total grievances
 
-\- View high, medium, and low priority grievances
+- View high, medium, and low priority grievances
 
-\- Identify potentially recurring issues
+- Identify potentially recurring issues
 
-\- View grievance category distribution
+- View grievance category distribution
 
-\- View sustainability insights
+- View sustainability insights
 
-\- Review recent grievances
+- Review recent grievances
 
-\- Update grievance status
+- Update grievance status
 
 
 
@@ -138,19 +138,19 @@ Available statuses:
 
 
 
-\- Pending
+- Pending
 
-\- In Progress
+- In Progress
 
-\- Resolved
-
-
-
-\---
+- Resolved
 
 
 
-\## System Workflow
+---
+
+
+
+## System Workflow
 
 
 
@@ -234,11 +234,11 @@ Structured Analysis     Recurring Detection
 
 
 
-\## Key AI Features
+## Key AI Features
 
 
 
-\### 1. Grievance Classification
+### 1. Grievance Classification
 
 
 
@@ -246,29 +246,29 @@ The AI categorizes grievances into predefined categories:
 
 
 
-\- Water \& Sanitation
+- Water \& Sanitation
 
-\- Waste Management
+- Waste Management
 
-\- Electricity \& Energy
+- Electricity \& Energy
 
-\- Infrastructure
+- Infrastructure
 
-\- Maintenance
+- Maintenance
 
-\- Transportation
+- Transportation
 
-\- Environment
+- Environment
 
-\- IT/Technical
+- IT/Technical
 
-\- Cleanliness
+- Cleanliness
 
-\- Other
+- Other
 
 
 
-\### 2. Priority Detection
+### 2. Priority Detection
 
 
 
@@ -276,11 +276,11 @@ The system classifies grievances as:
 
 
 
-\- High
+- High
 
-\- Medium
+- Medium
 
-\- Low
+- Low
 
 
 
@@ -288,21 +288,21 @@ Priority is determined using factors such as:
 
 
 
-\- Safety risk
+- Safety risk
 
-\- Health risk
+- Health risk
 
-\- Service disruption
+- Service disruption
 
-\- Urgency
+- Urgency
 
-\- Environmental impact
+- Environmental impact
 
-\- Resource wastage
+- Resource wastage
 
 
 
-\### 3. Information Extraction
+### 3. Information Extraction
 
 
 
@@ -310,15 +310,15 @@ The AI extracts useful information from the grievance, including:
 
 
 
-\- Issue
+- Issue
 
-\- Location
+- Location
 
-\- Duration
+- Duration
 
 
 
-\### 4. Department Routing
+### 4. Department Routing
 
 
 
@@ -326,7 +326,7 @@ The system identifies the department that should handle the grievance.
 
 
 
-\### 5. Recurring Issue Detection
+### 5. Recurring Issue Detection
 
 
 
@@ -338,9 +338,9 @@ The system provides:
 
 
 
-\- Similarity score
+- Similarity score
 
-\- Matched grievance ID
+- Matched grievance ID
 
 
 
@@ -348,7 +348,7 @@ Recurring detection is presented as a potential match rather than absolute certa
 
 
 
-\### 6. Sustainability Analysis
+### 6. Sustainability Analysis
 
 
 
@@ -360,19 +360,19 @@ Examples include:
 
 
 
-\- Water wastage
+- Water wastage
 
-\- Energy wastage
+- Energy wastage
 
-\- Waste accumulation
+- Waste accumulation
 
-\- Environmental pollution
+- Environmental pollution
 
-\- Resource inefficiency
+- Resource inefficiency
 
 
 
-\### 7. Recommended Actions
+### 7. Recommended Actions
 
 
 
@@ -380,7 +380,7 @@ The system generates practical actions that administrators can consider.
 
 
 
-\### 8. AI Summary
+### 8. AI Summary
 
 
 
@@ -388,11 +388,11 @@ Each grievance is converted into a concise summary for easier administrative rev
 
 
 
-\## Sustainability Alignment
+## Sustainability Alignment
 
 
 
-\### Primary SDG
+### Primary SDG
 
 
 
@@ -404,23 +404,23 @@ SGA supports sustainable community management by helping institutions identify a
 
 
 
-\### Secondary SDGs
+### Secondary SDGs
 
 
 
-\- SDG 6 – Clean Water and Sanitation
+- SDG 6 – Clean Water and Sanitation
 
-\- SDG 7 – Affordable and Clean Energy
+- SDG 7 – Affordable and Clean Energy
 
-\- SDG 12 – Responsible Consumption and Production
-
-
-
-\## Example
+- SDG 12 – Responsible Consumption and Production
 
 
 
-\### User Grievance
+## Example
+
+
+
+### User Grievance
 
 
 
@@ -428,47 +428,47 @@ There is a water leakage near the girls hostel for the last 3 days, and a large 
 
 
 
-\### AI Analysis
+### AI Analysis
 
 
 
-\*\*Category:\*\*
+*\*Category:\*\*
 
 Water \& Sanitation
 
 
 
-\*\*Priority:\*\*
+*\*Priority:\*\*
 
 High
 
 
 
-\*\*Location:\*\*
+*\*Location:\*\*
 
 Girls Hostel
 
 
 
-\*\*Duration:\*\*
+*\*Duration:\*\*
 
 3 days
 
 
 
-\*\*Responsible Department:\*\*
+*\*Responsible Department:\*\*
 
 Facilities Management
 
 
 
-\*\*Sustainability Impact:\*\*
+*\*Sustainability Impact:\*\*
 
 Water wastage due to the ongoing leakage.
 
 
 
-\*\*Recommended Action:\*\*
+*\*Recommended Action:\*\*
 
 Inspect and repair the leakage immediately.
 
@@ -478,7 +478,7 @@ If a similar grievance already exists, SGA can identify it as:
 
 
 
-\*\*Potentially Recurring Issue\*\*
+*\*Potentially Recurring Issue\*\*
 
 
 
@@ -486,7 +486,7 @@ and provide a similarity score.
 
 
 
-\## Grievance Tracking
+## Grievance Tracking
 
 
 
@@ -498,11 +498,11 @@ Examples:
 
 
 
-\- SGA-001
+- SGA-001
 
-\- SGA-002
+- SGA-002
 
-\- SGA-003
+- SGA-003
 
 
 
@@ -514,13 +514,13 @@ Example:
 
 
 
-\*\*Grievance ID:\*\*
+*\*Grievance ID:\*\*
 
 SGA-006
 
 
 
-\*\*Status:\*\*
+*\*Status:\*\*
 
 Resolved
 
@@ -530,7 +530,7 @@ The status is updated by the administrator through the Admin Dashboard.
 
 
 
-\## Responsible AI
+## Responsible AI
 
 
 
@@ -538,43 +538,43 @@ SGA follows responsible AI principles during analysis and decision support.
 
 
 
-\*\*Fairness\*\*
+*\*Fairness\*\*
 
 Predefined categories and priority levels are used to promote consistent classification.
 
 
 
-\*\*Transparency\*\*
+*\*Transparency\*\*
 
 AI-generated analysis and recommendations are displayed clearly to users and administrators.
 
 
 
-\*\*Privacy\*\*
+*\*Privacy\*\*
 
 Users are encouraged not to include unnecessary personal or sensitive information in grievances.
 
 
 
-\*\*Human Review\*\*
+*\*Human Review\*\*
 
 AI recommendations support administrators but do not replace human decision-making.
 
 
 
-\*\*Uncertainty\*\*
+*\*Uncertainty\*\*
 
 Recurring issue detection is presented as a potential match instead of claiming certainty.
 
 
 
-\*\*Controlled Output\*\*
+*\*Controlled Output\*\*
 
 The AI is instructed to use predefined categories and priorities and avoid inventing missing information.
 
 
 
-\## Technology Stack
+## Technology Stack
 
 
 
@@ -600,7 +600,7 @@ The AI is instructed to use predefined categories and priorities and avoid inven
 
 
 
-\## Project Architecture
+## Project Architecture
 
 &#x20;      
 
@@ -646,7 +646,7 @@ Grievance Analyzer        Admin Dashboard
 
 
 
-\## Project Structure
+## Project Structure
 
 
 
@@ -696,11 +696,11 @@ smart-grievance-analyzer/
 
 
 
-\## How the Prototype Works
+## How the Prototype Works
 
 
 
-\### Step 1 — Submit a Grievance
+### Step 1 — Submit a Grievance
 
 
 
@@ -708,7 +708,7 @@ A student or staff member enters a campus grievance through the Grievance Analyz
 
 
 
-\### Step 2 — AI Analysis
+### Step 2 — AI Analysis
 
 
 
@@ -716,7 +716,7 @@ The Flask backend sends the grievance to IBM Granite through IBM watsonx.ai.
 
 
 
-\### Step 3 — Structured Output
+### Step 3 — Structured Output
 
 
 
@@ -724,7 +724,7 @@ The AI identifies the category, priority, issue, location, duration, department,
 
 
 
-\### Step 4 — Recurring Detection
+### Step 4 — Recurring Detection
 
 
 
@@ -732,7 +732,7 @@ The system compares the new grievance with previous grievances to identify poten
 
 
 
-\### Step 5 — Database Storage
+### Step 5 — Database Storage
 
 
 
@@ -740,7 +740,7 @@ The analyzed grievance is stored in the SQLite database along with its unique Gr
 
 
 
-\### Step 6 — Admin Review
+### Step 6 — Admin Review
 
 
 
@@ -748,7 +748,7 @@ Administrators can review grievances through the separate Admin Dashboard.
 
 
 
-\### Step 7 — Status Tracking
+### Step 7 — Status Tracking
 
 
 
@@ -764,7 +764,7 @@ Students can check the latest status using their Grievance ID.
 
 
 
-\## Impact
+## Impact
 
 
 
@@ -776,27 +776,27 @@ Potential benefits include:
 
 
 
-\- Faster grievance classification
+- Faster grievance classification
 
-\- Better prioritization
+- Better prioritization
 
-\- More efficient department routing
+- More efficient department routing
 
-\- Identification of recurring issues
+- Identification of recurring issues
 
-\- Improved resource management
+- Improved resource management
 
-\- Reduced water and energy wastage
+- Reduced water and energy wastage
 
-\- Better waste management
+- Better waste management
 
-\- Improved transparency of grievance status
+- Improved transparency of grievance status
 
-\- Data-supported administrative decisions
+- Data-supported administrative decisions
 
 
 
-\## Future Scope
+## Future Scope
 
 
 
@@ -804,43 +804,43 @@ Future versions of SGA could include:
 
 
 
-\- Email and notification alerts
+- Email and notification alerts
 
-\- Mobile application
+- Mobile application
 
-\- Authentication and role-based access
+- Authentication and role-based access
 
-\- Advanced analytics and trend prediction
+- Advanced analytics and trend prediction
 
-\- Geographical visualization of recurring issues
+- Geographical visualization of recurring issues
 
-\- Integration with institutional ticketing systems
+- Integration with institutional ticketing systems
 
-\- Multilingual grievance submission
+- Multilingual grievance submission
 
-\- More advanced sustainability metrics
+- More advanced sustainability metrics
 
-\- Automated escalation of unresolved high-priority issues
-
-
-
-\## Running the Project Locally
+- Automated escalation of unresolved high-priority issues
 
 
 
-\### 1. Clone the Repository
+## Running the Project Locally
+
+
+
+### 1. Clone the Repository
 
 git clone https://github.com/Manoj29981/smart-grievance-analyzer.git
 
 
 
-\### 2. Open the Project Directory
+### 2. Open the Project Directory
 
 cd smart-grievance-analyzer
 
 
 
-\### 3. Create a Virtual Environment
+### 3. Create a Virtual Environment
 
 
 
@@ -856,7 +856,7 @@ python -m venv venv
 
 
 
-\### 4. Activate the Virtual Environment
+### 4. Activate the Virtual Environment
 
 
 
@@ -866,13 +866,13 @@ venv\\Scripts\\activate
 
 ```
 
-\### 5. Install Dependencies
+### 5. Install Dependencies
 
 pip install -r requirements.txt
 
 
 
-\### 6. Configure Environment Variables
+### 6. Configure Environment Variables
 
 
 
@@ -890,13 +890,13 @@ Do not commit the .env file to GitHub.
 
 
 
-\### 7. Initialize the Database
+### 7. Initialize the Database
 
 python database.py
 
 
 
-\### 8. Start the Application
+### 8. Start the Application
 
 python app.py
 
@@ -918,7 +918,7 @@ http://127.0.0.1:5000/dashboard
 
 
 
-\## Demo
+## Demo
 
 
 
@@ -926,65 +926,65 @@ The current prototype demonstrates:
 
 
 
-\- AI-powered grievance analysis
+- AI-powered grievance analysis
 
-\- Category classification
+- Category classification
 
-\- Priority detection
+- Priority detection
 
-\- Information extraction
+- Information extraction
 
-\- Department routing
+- Department routing
 
-\- Recurring grievance detection
+- Recurring grievance detection
 
-\- Sustainability impact analysis
+- Sustainability impact analysis
 
-\- Recommended actions
+- Recommended actions
 
-\- Unique Grievance IDs
+- Unique Grievance IDs
 
-\- Separate Admin Dashboard
+- Separate Admin Dashboard
 
-\- Grievance status management
+- Grievance status management
 
-\- Student/staff status checking
-
-
-
-\## Project Information
+- Student/staff status checking
 
 
 
-\*\*Project:\*\* Smart Grievance Analyzer (SGA)
+## Project Information
 
 
 
-\*\*Long Title:\*\* AI Smart Grievance Analyzer for Sustainable Campus Management
+*\*Project:\*\* Smart Grievance Analyzer (SGA)
 
 
 
-\*\*Program:\*\* 1M1B AI for Sustainability Virtual Internship
+*\*Long Title:\*\* AI Smart Grievance Analyzer for Sustainable Campus Management
 
 
 
-\*\*Collaboration:\*\* 1M1B × IBM SkillsBuild × AICTE
+*\*Program:\*\* 1M1B AI for Sustainability Virtual Internship
 
 
 
-\*\*Primary SDG:\*\* SDG 11 – Sustainable Cities and Communities
+*\*Collaboration:\*\* 1M1B × IBM SkillsBuild × AICTE
 
 
 
-\*\*Institution:\*\* Guru Nanak Institute of Technology
+*\*Primary SDG:\*\* SDG 11 – Sustainable Cities and Communities
 
 
 
-\*\*Developer:\*\* Manoj Kumar Pochamolla
+*\*Institution:\*\* Guru Nanak Institute of Technology
 
 
 
-\## Repository
+*\*Developer:\*\* Manoj Kumar Pochamolla
+
+
+
+## Repository
 
 
 
