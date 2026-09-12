@@ -10,7 +10,7 @@ Smart Grievance Analyzer (SGA) is an AI-powered decision-support system designed
 
 
 
-The system uses \*\*IBM Granite through IBM watsonx.ai\*\* to transform unstructured student and staff grievances into structured, actionable information for campus administrators.
+The system uses IBM Granite through IBM watsonx.ai to transform unstructured student and staff grievances into structured, actionable information for campus administrators.
 
 
 
@@ -62,7 +62,7 @@ This can make it difficult for administrators to:
 
 
 
-SGA provides \*\*two separate interfaces\*\* connected through a Flask backend and a shared SQLite database.
+SGA provides two separate interfaces connected through a Flask backend and a shared SQLite database.
 
 
 
@@ -70,7 +70,7 @@ SGA provides \*\*two separate interfaces\*\* connected through a Flask backend a
 
 
 
-The Grievance Analyzer is designed for \*\*students and staff\*\*.
+The Grievance Analyzer is designed for students and staff.
 
 
 
@@ -110,7 +110,7 @@ Users can also enter their Grievance ID to check the current status of their gri
 
 
 
-The Admin Dashboard is designed for \*\*college administrators and campus management\*\*.
+The Admin Dashboard is designed for college administrators and campus management.
 
 
 
@@ -152,87 +152,20 @@ Available statuses:
 
 ## System Workflow
 
+| Step | Process | Description |
+|---|---|---|
+| 1 | Student / Staff | Submits a grievance through the Grievance Analyzer. |
+| 2 | Grievance Analyzer | Sends the grievance to the Flask backend. |
+| 3 | Flask Backend | Connects the application with IBM Granite through IBM watsonx.ai. |
+| 4 | IBM Granite | Analyzes the grievance and generates structured information. |
+| 5 | AI Analysis | Identifies category, priority, issue, location, duration, department, sustainability impact, recommended action, and summary. |
+| 6 | Recurring Detection | Compares the new grievance with previous grievances to identify potential recurring issues. |
+| 7 | SQLite Database | Stores the analyzed grievance and unique Grievance ID. |
+| 8 | Admin Dashboard | Allows administrators to review grievances and sustainability insights. |
+| 9 | Admin Review | Administrator reviews the issue and updates its status. |
+| 10 | Status Tracking | Grievance moves through Pending → In Progress → Resolved. Students can check the latest status using the Grievance ID. |
 
-
-```text
-
-Student / Staff
-
-&#x20;      |
-
-&#x20;      v
-
-Grievance Analyzer
-
-&#x20;      |
-
-&#x20;      v
-
-Flask Backend
-
-&#x20;      |
-
-&#x20;      v
-
-IBM Granite
-
-&#x20;      |
-
-&#x20;      v
-
-AI Analysis
-
-&#x20;      |
-
-&#x20;      +----------------------+
-
-&#x20;      |                      |
-
-&#x20;      v                      v
-
-Structured Analysis     Recurring Detection
-
-&#x20;      |                      |
-
-&#x20;      +----------+-----------+
-
-&#x20;                 |
-
-&#x20;                 v
-
-&#x20;            SQLite Database
-
-&#x20;                 |
-
-&#x20;                 v
-
-&#x20;          Admin Dashboard
-
-&#x20;                 |
-
-&#x20;                 v
-
-&#x20;         Admin Reviews Issue
-
-&#x20;                 |
-
-&#x20;                 v
-
-&#x20;      Pending / In Progress /
-
-&#x20;            Resolved
-
-&#x20;                 |
-
-&#x20;                 v
-
-&#x20;      Student Checks Status
-
-&#x20;      Using Grievance ID
-
-```
-
-
+---
 
 ## Key AI Features
 
@@ -432,43 +365,43 @@ There is a water leakage near the girls hostel for the last 3 days, and a large 
 
 
 
-*\*Category:\*\*
+Category:
 
 Water \& Sanitation
 
 
 
-*\*Priority:\*\*
+Priority:
 
 High
 
 
 
-*\*Location:\*\*
+Location:
 
 Girls Hostel
 
 
 
-*\*Duration:\*\*
+Duration:
 
 3 days
 
 
 
-*\*Responsible Department:\*\*
+Responsible Department:
 
 Facilities Management
 
 
 
-*\*Sustainability Impact:\*\*
+Sustainability Impact:
 
 Water wastage due to the ongoing leakage.
 
 
 
-*\*Recommended Action:\*\*
+Recommended Action:
 
 Inspect and repair the leakage immediately.
 
@@ -478,7 +411,7 @@ If a similar grievance already exists, SGA can identify it as:
 
 
 
-*\*Potentially Recurring Issue\*\*
+Potentially Recurring Issue
 
 
 
@@ -514,13 +447,13 @@ Example:
 
 
 
-*\*Grievance ID:\*\*
+Grievance ID:
 
 SGA-006
 
 
 
-*\*Status:\*\*
+Status:
 
 Resolved
 
@@ -538,37 +471,37 @@ SGA follows responsible AI principles during analysis and decision support.
 
 
 
-*\*Fairness\*\*
+Fairness
 
 Predefined categories and priority levels are used to promote consistent classification.
 
 
 
-*\*Transparency\*\*
+Transparency
 
 AI-generated analysis and recommendations are displayed clearly to users and administrators.
 
 
 
-*\*Privacy\*\*
+Privacy
 
 Users are encouraged not to include unnecessary personal or sensitive information in grievances.
 
 
 
-*\*Human Review\*\*
+Human Review
 
 AI recommendations support administrators but do not replace human decision-making.
 
 
 
-*\*Uncertainty\*\*
+Uncertainty
 
 Recurring issue detection is presented as a potential match instead of claiming certainty.
 
 
 
-*\*Controlled Output\*\*
+Controlled Output
 
 The AI is instructed to use predefined categories and priorities and avoid inventing missing information.
 
@@ -579,72 +512,43 @@ The AI is instructed to use predefined categories and priorities and avoid inven
 
 
 | Component | Technology |
-
 |---|---|
-
 | Frontend | HTML, CSS, JavaScript |
-
 | Backend | Python, Flask |
-
 | Database | SQLite |
-
 | AI Model | IBM Granite 4 H Small |
-
 | AI Platform | IBM watsonx.ai |
-
 | Development | Visual Studio Code |
-
 | Version Control | Git |
-
 | Repository | GitHub |
 
 
 
 ## Project Architecture
 
-&#x20;      
+```text
+                         SGA SYSTEM
+                             |
+             +---------------+---------------+
+             |                               |
+             v                               v
+   GRIEVANCE ANALYZER                 ADMIN DASHBOARD
+     Students / Staff                  College Admin
+             |                               |
+             +---------------+---------------+
+                             |
+                             v
+                      FLASK BACKEND
+                             |
+                 +-----------+-----------+
+                 |                       |
+                 v                       v
+           IBM GRANITE              SQLITE DATABASE
+                 |                       ^
+                 v                       |
+             AI ANALYSIS ---------------+
 
-&#x20;                SGA SYSTEM
-
-&#x20;                   |
-
-&#x20;       +-----------+-----------+
-
-&#x20;       |                       |
-
-&#x20;       v                       v
-
-Grievance Analyzer        Admin Dashboard
-
-&#x20;Students / Staff         College Admin
-
-&#x20;       |                       |
-
-&#x20;       +-----------+-----------+
-
-&#x20;                   |
-
-&#x20;                   v
-
-&#x20;             Flask Backend
-
-&#x20;                   |
-
-&#x20;         +---------+---------+
-
-&#x20;         |                   |
-
-&#x20;         v                   v
-
-&#x20;     IBM Granite          SQLite
-
-&#x20;         |
-
-&#x20;         v
-
-&#x20;      AI Analysis
-
-
+```
 
 ## Project Structure
 
@@ -956,31 +860,31 @@ The current prototype demonstrates:
 
 
 
-*\*Project:\*\* Smart Grievance Analyzer (SGA)
+Project: Smart Grievance Analyzer (SGA)
 
 
 
-*\*Long Title:\*\* AI Smart Grievance Analyzer for Sustainable Campus Management
+Long Title: AI Smart Grievance Analyzer for Sustainable Campus Management
 
 
 
-*\*Program:\*\* 1M1B AI for Sustainability Virtual Internship
+Program: 1M1B AI for Sustainability Virtual Internship
 
 
 
-*\*Collaboration:\*\* 1M1B × IBM SkillsBuild × AICTE
+Collaboration: 1M1B × IBM SkillsBuild × AICTE
 
 
 
-*\*Primary SDG:\*\* SDG 11 – Sustainable Cities and Communities
+Primary SDG: SDG 11 – Sustainable Cities and Communities
 
 
 
-*\*Institution:\*\* Guru Nanak Institute of Technology
+Institution: Guru Nanak Institute of Technology
 
 
 
-*\*Developer:\*\* Manoj Kumar Pochamolla
+Developer: Manoj Kumar Pochamolla
 
 
 
