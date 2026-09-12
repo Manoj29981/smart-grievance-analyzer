@@ -149,21 +149,39 @@ Available statuses:
 ---
 
 
-
 ## System Workflow
 
-| Step | Process | Description |
-|---|---|---|
-| 1 | Student / Staff | Submits a grievance through the Grievance Analyzer. |
-| 2 | Grievance Analyzer | Sends the grievance to the Flask backend. |
-| 3 | Flask Backend | Connects the application with IBM Granite through IBM watsonx.ai. |
-| 4 | IBM Granite | Analyzes the grievance and generates structured information. |
-| 5 | AI Analysis | Identifies category, priority, issue, location, duration, department, sustainability impact, recommended action, and summary. |
-| 6 | Recurring Detection | Compares the new grievance with previous grievances to identify potential recurring issues. |
-| 7 | SQLite Database | Stores the analyzed grievance and unique Grievance ID. |
-| 8 | Admin Dashboard | Allows administrators to review grievances and sustainability insights. |
-| 9 | Admin Review | Administrator reviews the issue and updates its status. |
-| 10 | Status Tracking | Grievance moves through Pending → In Progress → Resolved. Students can check the latest status using the Grievance ID. |
+1. Student / Staff  
+   Submits a grievance through the Grievance Analyzer.
+
+2. Grievance Analyzer  
+   Sends the grievance to the Flask backend.
+
+3. Flask Backend  
+   Connects the application with IBM Granite through IBM watsonx.ai.
+
+4. IBM Granite  
+   Analyzes the grievance and generates structured information.
+
+5. AI Analysis  
+   Identifies the category, priority, issue, location, duration, responsible department, sustainability impact, recommended action, and summary.
+
+6. Recurring Detection  
+   Compares the new grievance with previous grievances to identify potential recurring issues.
+
+7. SQLite Database  
+   Stores the analyzed grievance along with its unique Grievance ID.
+
+8. Admin Dashboard  
+   Allows administrators to review grievances and sustainability insights.
+
+9. Admin Review  
+   The administrator reviews the issue and updates its status.
+
+10. Status Tracking  
+    The grievance moves through Pending → In Progress → Resolved. Students can check the latest status using their Grievance ID.
+
+
 
 ---
 
